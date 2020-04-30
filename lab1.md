@@ -9,7 +9,7 @@ The workshop is divided into two parts. The first part of the workshop focuses o
 ![FHIR Server](images/part-1-image-1.png)
 1. Log on to the AWS management console and make sure your region from the top right corner is set to US West(Oregon). 
 1. Click on services and search for cloud9. Cloud9 service is a browser based built-in IDE desktop to write code, run CLI commands or create container images. It has a pre-configured AWS CLI and provides a linux terminal to run commands.
-1. Create a new environment and call it as FHIRDesktop. **Use m4.large type. Leave the other settings as default.**
+1. Create a new environment and call it as FHIRDesktop. **Use m5.large type. Leave the other settings as default.**
 
 ![FHIR Server](images/part-1-image-2.png)
 
@@ -47,6 +47,14 @@ We will create the S3 bucket in this step which will be used later as part of th
 
 
 1. Run the following command in Cloud9 terminal to create a S3 bucket. You will need to pick a ***unique name*** like fhir-code-bucket-<<<user initials>> for the bucket otherwise the command will throw an error. S3 bucket name requirements can be found **[here](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-s3-bucket-naming-requirements.html).**
+
+Start with the account id to make it unique:
+`aws sts get-caller-identity | jq '.Account'`
+
+Example:
+
+export PACKAGE_BUCKET_NAME=340054819060-fhir-code
+
 
     ```
     export PACKAGE_BUCKET_NAME=<<PACKAGE_BUCKET_NAME>>
